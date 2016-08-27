@@ -1,0 +1,125 @@
+@import "brandcolors";
+
+.build-social(@color){
+   color: @color;
+   &:hover {
+      color: lighten(@color, 30%);
+   }
+}
+
+.profiles {
+   icon {
+      font-size: 35px;
+      margin: 5px;
+      cursor: pointer;
+      -webkit-transition: all 0.3s ease;
+      -moz-transition: all 0.3s ease;
+      -ms-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
+      transition: all 0.3s ease;
+   }
+
+   .fa-facebook {
+      .build-social(@facebook-color);
+   }
+
+   .fa-twitter {
+      .build-social(@twitter-color);
+   }
+
+   .fa-google-plus {
+      .build-social(@gplus-color); 
+   }
+
+   .fa-rss {
+      .build-social(@rss-color); 
+   }
+
+   .fa-tumblr {
+      .build-social(@tumblr-color);
+   }
+
+   .fa-wordpress {
+      .build-social(@wordpress-color); 
+   }
+   
+   .fa-linkedin-square {
+      .build-social(@linkedin-color);
+   }
+
+   .fa-angellist {
+      .build-social(@angellist-color);
+   }
+
+   .fa-github {
+      .build-social(@github-color);
+   }
+
+   .fa-bitbucket {
+      .build-social(@bitbucket-color);
+   }
+
+   .fa-stack-overflow {
+      .build-social(@stackoverflow-color);
+   }
+
+   .fa-codepen {
+      .build-social(@codepen-color);
+   }
+
+   .fa-jsfiddle {
+      .build-social(@jsfiddle-color);
+   }
+
+   .fa-flickr {
+      .build-social(@flickr-color);
+   }
+
+   .fa-instagram {
+      .build-social(@instagram-color);
+   }
+
+   .fa-500px {
+      .build-social(@500px-color);
+   }
+
+   .fa-deviantart {
+      .build-social(@deviantart-color);
+   }
+
+   .fa-dribble {
+      .build-social(@dribble-color);
+   }
+
+   .fa-youtube {
+      .build-social(@youtube-color);
+   }
+
+   .fa-vimeo {
+      .build-social(@vimeo-color);
+   }
+
+   .fa-soundcloud {
+      .build-social(@soundcloud-color);
+   }
+
+   .fa-spotify {
+      .build-social(@spotify-color);
+   }
+
+   .fa-lastfm {
+      .build-social(@lastfm-color);
+   }
+
+   .fa-pinterest {
+      .build-social(@pinterest-color);
+   }
+
+   .fa-steam {
+      .build-social(@steam-color);
+   }
+
+   .fa-reddit {
+      .build-social(@reddit-color);
+   }
+}

@@ -1,0 +1,166 @@
+.profiles icon {
+  font-size: 35px;
+  margin: 5px;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.profiles .fa-facebook {
+  color: #3b5998;
+}
+.profiles .fa-facebook:hover {
+  color: #96abd6;
+}
+.profiles .fa-twitter {
+  color: #1da1f2;
+}
+.profiles .fa-twitter:hover {
+  color: #aeddfa;
+}
+.profiles .fa-google-plus {
+  color: #dd4b39;
+}
+.profiles .fa-google-plus:hover {
+  color: #f3c2bc;
+}
+.profiles .fa-rss {
+  color: #f26522;
+}
+.profiles .fa-rss:hover {
+  color: #fbcab2;
+}
+.profiles .fa-tumblr {
+  color: #35465c;
+}
+.profiles .fa-tumblr:hover {
+  color: #7891b2;
+}
+.profiles .fa-wordpress {
+  color: #21759b;
+}
+.profiles .fa-wordpress:hover {
+  color: #74bfe1;
+}
+.profiles .fa-linkedin-square {
+  color: #0077b5;
+}
+.profiles .fa-linkedin-square:hover {
+  color: #4fc3ff;
+}
+.profiles .fa-angellist {
+  color: #272727;
+}
+.profiles .fa-angellist:hover {
+  color: #747474;
+}
+.profiles .fa-github {
+  color: #4183c4;
+}
+.profiles .fa-github:hover {
+  color: #b6cfe8;
+}
+.profiles .fa-bitbucket {
+  color: #205081;
+}
+.profiles .fa-bitbucket:hover {
+  color: #629cd8;
+}
+.profiles .fa-stack-overflow {
+  color: #fe7a15;
+}
+.profiles .fa-stack-overflow:hover {
+  color: #ffd1ad;
+}
+.profiles .fa-codepen {
+  color: #000;
+}
+.profiles .fa-codepen:hover {
+  color: #4d4d4d;
+}
+.profiles .fa-jsfiddle {
+  color: #2d98f4;
+}
+.profiles .fa-jsfiddle:hover {
+  color: #bedffc;
+}
+.profiles .fa-flickr {
+  color: #0063dc;
+}
+.profiles .fa-flickr:hover {
+  color: #76b4ff;
+}
+.profiles .fa-instagram {
+  color: #e1306c;
+}
+.profiles .fa-instagram:hover {
+  color: #f4b6cb;
+}
+.profiles .fa-500px {
+  color: #0099e5;
+}
+.profiles .fa-500px:hover {
+  color: #7fd5ff;
+}
+.profiles .fa-deviantart {
+  color: #05cc47;
+}
+.profiles .fa-deviantart:hover {
+  color: #6ffb9d;
+}
+.profiles .fa-dribble {
+  color: #444444;
+}
+.profiles .fa-dribble:hover {
+  color: #919191;
+}
+.profiles .fa-youtube {
+  color: #cd201f;
+}
+.profiles .fa-youtube:hover {
+  color: #ef9696;
+}
+.profiles .fa-vimeo {
+  color: #1ab7ea;
+}
+.profiles .fa-vimeo:hover {
+  color: #a6e3f7;
+}
+.profiles .fa-soundcloud {
+  color: #ff7700;
+}
+.profiles .fa-soundcloud:hover {
+  color: #ffc999;
+}
+.profiles .fa-spotify {
+  color: #2ebd59;
+}
+.profiles .fa-spotify:hover {
+  color: #9de7b3;
+}
+.profiles .fa-lastfm {
+  color: #d51007;
+}
+.profiles .fa-lastfm:hover {
+  color: #fb807a;
+}
+.profiles .fa-pinterest {
+  color: #bd081c;
+}
+.profiles .fa-pinterest:hover {
+  color: #f96576;
+}
+.profiles .fa-steam {
+  color: #213d58;
+}
+.profiles .fa-steam:hover {
+  color: #538abf;
+}
+.profiles .fa-reddit {
+  color: #ff4500;
+}
+.profiles .fa-reddit:hover {
+  color: #ffb599;
+}

@@ -1,0 +1,478 @@
+<!doctype html>
+<html>
+   <head>
+
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, user-scalable=no, minimal-ui">
+      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+      <link rel="stylesheet" href="css/socialstyles.css">
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+      <script src="js/on-screen.umd.min.js"></script>
+      <script src="js/scripts.js"></script>
+
+      <title>{{#resume.basics}}{{name}}{{/resume.basics}}</title>
+
+      <style>
+{{{css}}}
+      </style>
+
+   </head>
+   <body data-spy="scroll" data-target="#myScrollSpy" data-offset="100">
+
+      <div id="wrapper">
+
+         {{#if resume.menu.length}}
+         <nav class="" id="myScrollSpy">
+            <ul class="nav" data-spy="affix">
+               {{#each resume.menu}}
+               <li><a href="#{{link}}">{{name}}</a></li>
+               {{/each}}
+            </ul>
+         </nav>
+         {{/if}}
+
+         <section id="basics">
+            <div class="thumbnail">
+               <img src="{{resume.basics.thumbnail}}"/>
+            </div>
+            {{#resume.basics}}
+            <h1>{{name}}</h1>
+            <h2>{{label}}</h2>
+
+            {{#if summary}}
+            <div class="summary">
+               <icon class="fa fa-quote-left"></icon>
+               {{{ summary}}}
+               <icon class="fa fa-quote-right"></icon>
+            </div>
+            {{/if}}
+
+            <div class="info">
+
+               <div class="contact col1-2">
+                  {{#location}}
+                  <div class="contact_row">
+                     <icon class="fa fa-globe"></icon>
+                     <span>
+                        {{#if address}}{{address}}{{/if}}{{#if postalCode}},
+                        {{postalCode}}{{/if}}{{#if city}}
+                        {{city}}{{/if}}{{#if countryCode}},
+                        {{countryCode}}{{/if}}{{#if region}},
+                        {{region}}{{/if}}
+                     </span>
+                  </div>
+                  {{/location}}
+                  {{#if website}}
+                  <div class="contact_row">
+                     <icon class="fa fa-link"></icon>
+                     <span><a href="{{website}}" target="_blank">{{website}}</a></span>
+                  </div>
+                  {{/if}}
+                  {{#if email}}
+                  <div class="contact_row">
+                     <icon class="fa fa-paper-plane"></icon>
+                     <span>{{email}}</span>
+                  </div>
+                  {{/if}}
+                  {{#if phone}}
+                  <div class="contact_row">
+                     <icon class="fa fa-phone"></icon>
+                     <span>{{phone}}</span>
+                  </div>
+                  {{/if}}
+               </div>
+
+               {{#if profiles.length}}
+               <div class="profiles col1-2">
+                  {{#each profiles}}
+                  {{#if network}}
+                  <a target="_blank" href="{{url}}"><icon class="{{icon}}"></icon></a>
+                  {{/if}}
+                  {{/each}}
+               </div>
+               {{/if}}
+
+               <div class="clear"></div>
+            </div>
+         </section>
+         {{/resume.basics}}
+
+
+         {{#if resume.work.length}}
+         <section id="work">
+            <div class="thumbnail">
+               <img src="{{resume.work.thumbnail}}"/>
+            </div>
+
+            <h2><icon class="fa fa-building"></icon> Work Experience</h2>
+
+            <div class="timeline-section">
+               {{#each resume.work}}
+               <div class="item">
+
+                  <div class="timeline">
+                     <div>
+                        {{#if startDate}}
+                        <p>{{startDate}}</p>
+                        {{/if}}
+                        {{#if endDate}}
+                        <p>{{endDate}}</p>
+                        {{/if}}
+                        {{#if duration}}
+                        <p class="duration">{{duration}}</p>
+                        {{/if}}
+                     </div>
+                  </div>
+
+                  <div class="description">
+                     <div class="position">
+                        {{#if position}}
+                        <span>{{position}}</span>{{/if}}{{#if company}}{{#if website}}, <a 
+                          href="{{website}}" target="_blank">{{company}}</a>
+                        {{else}}, {{company}}
+                        {{/if}}
+                        {{/if}}
+                     </div>
+                     {{#if summary}}
+                     <div class="summary">
+                        <p>{{summary}}</p>
+                     </div>
+                     {{/if}}
+                     {{#if highlights.length}}
+                     <h3>Highlights</h3>
+                     <ul class="highlights">
+                        {{#each highlights}}
+                        <li><span>{{.}}</span></li>
+                        {{/each}}
+                     </ul>
+                     {{/if}}
+                  </div>
+                  <div class="clear"></div>
+
+               </div>
+               {{/each}}
+            </div>
+         </section>
+         {{/if}}
+
+         {{#if resume.volunteer.length}}
+         <section id="volunteer">
+            <div class="thumbnail">
+               <img src="{{resume.volunteer.thumbnail}}"/>
+            </div>
+            <h2><icon class="fa fa-life-ring"></icon> Volunteer</h2>
+            <div class="timeline-section">
+               {{#each resume.volunteer}}
+               <div class="item">
+                  <div class="timeline">
+                     <div>
+                        {{#if startDate}}
+                        <p>{{startDate}}</p>
+                        {{/if}}
+                        {{#if endDate}}
+                        <p>{{endDate}}</p>
+                        {{/if}}
+                     </div>
+                  </div>
+                  <div class="description">
+                     <div class="position">
+                        {{#if position}}
+                        <span>{{position}}</span>{{/if}}{{#if organization}}{{#if website}}, <a 
+                          href="{{website}}" target="_blank">{{organization}}</a>
+                        {{else}}, {{organization}}
+                        {{/if}}
+                        {{/if}}
+                     </div>
+                     {{#if summary}}
+                     <div class="summary">
+                        <p>{{summary}}</p>
+                     </div>
+                     {{/if}}
+                     {{#if highlights.length}}
+                     <h3>Highlights</h3>
+                     <ul class="highlights">
+                        {{#each highlights}}
+                        <li><span>{{.}}</span></li>
+                        {{/each}}
+                     </ul>
+                     {{/if}}
+                  </div>
+                  <div class="clear"></div>
+               </div>
+
+               {{/each}}
+            </div>
+
+         </section>
+         {{/if}}
+
+         {{#if resume.education.length}}
+         <section id="education">
+            <div class="thumbnail">
+               <img src="{{resume.education.thumbnail}}"/>
+            </div>
+
+            <h2><icon class="fa fa-graduation-cap"></icon> Education</h2>
+
+            <div class="timeline-section">
+
+               {{#each resume.education}}
+               <div class="item">
+
+                  <div class="timeline">
+                     {{#if period}}
+                     <div><p>{{period}}</p> </div>
+                     {{/if}}
+                  </div>
+
+                  <div class="description">
+
+                     <div class="study-type">
+                        {{#if studyType}}
+                        {{studyType}}
+                        {{/if}}
+                        {{#if area}}
+                        in {{area}}
+                        {{/if}}
+                     </div>
+
+                     {{#if institution}}
+                     <div class="institution">
+                        <icon class="fa fa-university"></icon> {{institution}}
+                     </div>
+                     {{/if}}
+
+                     {{#if gpa}}
+                     <div class="gpa">
+                        GPA: {{gpa}}
+                     </div>
+                     {{/if}}
+
+                  </div>
+                  <div class="clear"></div>
+               </div>
+               {{/each}}
+            </div>
+         </section>
+         {{/if}}
+
+         {{#if resume.skills.length}}
+         <section id="skills">
+            <div class="thumbnail">
+               <img src="{{resume.skills.thumbnail}}"/>
+            </div>
+
+            <h2><icon class="fa fa-code"></icon> Skills</h2>
+
+            {{#each resume.skills}}
+            {{#if name}}
+            <div class="item">
+               <!-- If there's value, we animate till the value -->
+               {{#if value}}
+               <div class="progress {{className}}">
+                  <div class="progress-bar name-bar zero"
+                       role="progressbar"
+                       aria-valuenow="{{value}}"
+                       aria-valuemin="0"
+                       aria-valuemax="100"
+                       style="width:{{value}}%">
+                     <span>{{name}}</span>
+                  </div>
+               </div>
+               <!-- If no value, we just place the name of the skill group -->
+               {{else}}
+               <div class="name-bar">
+                  {{name}}
+               </div>
+               {{/if}}
+
+               {{#if keywords.length}}
+               <ul class="keywords">
+                  {{#each keywords}}
+                  <li>{{.}}</li>
+                  {{/each}}
+               </ul>
+               {{/if}}
+
+            </div>
+            {{/if}}
+            {{/each}}
+
+
+
+         </section>
+         {{/if}}
+
+         {{#if resume.awards.length}}
+         <section id="awards">
+            <div class="thumbnail">
+               <img src="{{resume.awards.thumbnail}}"/>
+            </div>
+
+            <h2><icon class="fa fa-trophy"></icon> Awards</h2>
+
+            <div class="timeline-section">
+               {{#each resume.awards}}
+               <div class="item">
+                  <div class="timeline">
+                     {{#if date}}
+                     <div><p>{{date}}</p></div>
+                     {{/if}}
+                  </div>
+                  <div class="description">
+                     {{#if title}}
+                     <div class="title">
+                        {{title}}
+                     </div>
+                     {{/if}}
+                     {{#if awarder}}
+                     <div class="awarder">
+                        <icon class="fa fa-star"></icon>
+                        {{awarder}}
+                     </div>
+                     {{/if}}
+                     {{#if summary}}
+                     <div class="summary">
+                        <p>{{summary}}</p>
+                     </div>
+                     {{/if}}
+                  </div>
+                  <div class="clear"></div>
+               </div>
+               {{/each}}
+            </div>
+         </section>
+         {{/if}}
+
+         {{#if resume.publications.length}}
+         <section id="publications">
+            <div class="thumbnail">
+               <img src="{{resume.publications.thumbnail}}"/>
+            </div>
+
+            <h2><icon class="fa fa-align-left"></icon> Publications</h2>
+
+            {{#each resume.publications}}
+            <div class="item">
+               {{#if name}}
+               <div class="name">
+                  {{#if website}}
+                  <a href="{{website}}" 
+                     target="_blank">{{name}}</a>{{else}}{{name}}{{/if}}{{#if publisher}}<span
+                     class="publisher">, {{publisher}}</span>
+                  {{/if}}
+               </div>
+               {{/if}}
+               {{#if releaseDate}}
+               <div class="releaseDate">
+                  Published on: {{releaseDate}}
+               </div>
+               {{/if}}
+
+               {{#if summary}}
+               <div class="summary">
+                  <p>{{summary}}</p>
+               </div>
+               {{/if}}
+
+            </div>
+            {{/each}}
+         </section>
+         {{/if}}
+
+         {{#if resume.languages.length}}
+         <section id="languages">
+            <div class="thumbnail">
+               <img src="{{resume.languages.thumbnail}}"/>
+            </div>
+
+            <h2><icon class="fa fa-comment"></icon> Languages</h2>
+
+            {{#each resume.languages}}
+            {{#if language}}
+            <div class="item">
+               <!-- If there's value, we animate till the value -->
+               {{#if value}}
+               <div class="progress {{className}}">
+                  <div class="progress-bar name-bar zero"
+                       role="progressbar"
+                       aria-valuenow="{{value}}"
+                       aria-valuemin="0"
+                       aria-valuemax="100"
+                       style="width:{{value}}%">
+                     <span>{{language}}</span>
+                  </div>
+               </div>
+               <!-- If no value, we just place the name of the language -->
+               {{else}}
+               <div class="name-bar">
+                  {{language}}
+               </div>
+               {{/if}}
+               {{/if}}
+            </div>
+            {{/each}}
+
+         </section>
+         {{/if}}
+
+         {{#if resume.interests.length}}
+         <section id="interests">
+            <div class="thumbnail">
+               <img src="{{resume.interests.thumbnail}}"/>
+            </div>
+
+            <h2><icon class="fa fa-heart"></icon> Interests</h2>
+
+            {{#each resume.interests}}
+            <div class="item">
+               {{#if name}}
+               <div class="name-bar">
+                  {{name}}
+               </div>
+               {{/if}}
+               {{#if keywords.length}}
+               <ul class="keywords">
+                  {{#each keywords}}
+                  <li>{{.}}</li>
+                  {{/each}}
+               </ul>
+               {{/if}}
+            </div>
+            {{/each}}
+         </section>
+         {{/if}}
+
+
+         {{#if resume.references.length}}
+         <section id="references">
+            <div class="thumbnail">
+               <img src="{{resume.references.thumbnail}}"/>
+            </div>
+
+            <h2><icon class="fa fa-thumbs-up"></icon> References</h2>
+
+            {{#each resume.references}}
+            <div class="item">
+               {{#if reference}}
+               <blockquote class="reference">
+                  {{reference}}
+               </blockquote>
+               {{/if}}
+               {{#if name}}
+               <div class="name">
+                  — {{name}}
+               </div>
+               {{/if}}
+            </div>
+            {{/each}}
+         </section>
+         {{/if}}
+
+         <div class="space"></div>
+
+      </div>
+   </body>
+</html>
