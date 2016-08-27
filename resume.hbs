@@ -19,12 +19,31 @@
       </style>
 
    </head>
-   <body data-spy="scroll" data-target="#myScrollSpy" data-offset="100">
+   <body data-spy="scroll" data-target="#scroll-spy" data-offset="100">
 
       <div id="wrapper">
 
+
          {{#if resume.menu.length}}
-         <nav class="" id="myScrollSpy">
+         <!-- Top fixed navigation bar for small devices -->
+         <div id="flt">
+            <div class="flt-button">
+               <a href="#"><icon class="fa fa-bars"></icon></a>
+            </div>
+            <nav id="flt-menu">
+               <ul class="nav">
+                  {{#each resume.menu}}
+                  <li><a href="#{{link}}">{{name}}</a></li>
+                  {{/each}}
+               </ul>
+               <div class="flt-close">
+                  <a href="#"><icon class="fa fa-chevron-circle-up"></icon></a>
+               </div>
+            </nav>
+         </div>
+         
+         <!-- Side fixed navigation menu for big devices -->
+         <nav id="scroll-spy">
             <ul class="nav" data-spy="affix">
                {{#each resume.menu}}
                <li><a href="#{{link}}">{{name}}</a></li>

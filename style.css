@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Lato|Ubuntu+Mono|VT323|Share+Tech+Mono');
 
-
 /* GLOBAL STYLES */
 
 html {
@@ -94,6 +93,118 @@ icon {
 }
 
 
+/* RESPONSIVE STYLES FOR THUMBNAIL AND MENU */
+@media (max-width: 991px) {
+   #basics {
+      margin-top: 120px !important;
+      padding-top: 120px !important;
+   }
+
+   .thumbnail {
+      display: none;
+   }
+
+   #basics .thumbnail {
+      background-color: white;
+      display: block;
+      margin: -100px !important;
+      position: absolute !important;
+      top: 0 !important;
+      left: 50% !important;
+      box-shadow: 0px -3px 8px -5px rgba(0,0,0,0.5) !important;
+      z-index: 5;
+   }
+   #basics .thumbnail img {
+      width: 100% !important;
+      height: initial !important;
+      filter: initial !important;
+      -webkit-filter: initial !important;
+      opacity: 1 !important;
+   }
+  
+   #scroll-spy {
+      display: none;
+   }
+
+   #flt {
+      display: block;
+      width: 50px;
+      height: 50px;
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background-color: white;
+      border-radius: 100%;
+      box-shadow: 1px 1px 14px -5px rgba(0,0,0,0.5);
+      z-index: 10;
+   }
+
+   #flt .flt-button,
+   #flt .flt-close {
+      text-align: center;
+   }
+
+   #flt .flt-button a,
+   #flt .flt-close a {
+      color: #bbfb87;
+   }
+
+   #flt .flt-button a:hover,
+   #flt .flt-close a:hover {
+      color: #e1e8f1;
+   }
+
+   #flt .flt-button icon,
+   #flt .flt-close icon {
+      font-size: 26px;
+      margin: 0px;
+      padding: 12px 0px;
+   }
+}
+
+@media (min-width: 992px) {
+   #flt {
+      display: none;
+   }
+}
+
+/* NAVIGATION MENU STYLES */
+
+nav {
+   position: fixed;
+   text-align: left;
+   text-transform: uppercase;
+}
+
+nav ul li a {
+   padding: 5px !important;
+   transition: all 0.5s ease 0s;
+}
+
+nav ul li a:hover,
+nav ul li.active a {
+   color: black;
+   background-color: transparent !important;
+}
+
+nav#scroll-spy {
+   z-index: 999;
+   margin-left: 620px;
+}
+
+nav#flt-menu {
+   display:none;
+   top: 10px;
+   right: 10px;
+   background: white;
+   box-shadow: 1px 1px 14px -5px rgba(0,0,0,0.5);
+   padding: 20px;
+}
+
+nav#flt-menu ul {
+   padding-bottom: 10px;
+}
+
 /* THUMBNAIL STYLES */
 
 div.thumbnail {
@@ -136,27 +247,6 @@ div.thumbnail.active img {
    opacity: 1;
 }
 
-
-/* NAVIGATION MENU STYLES */
-
-nav {
-   position: fixed;
-   z-index: 999;
-   margin-left: 620px;
-   text-align: left;
-   text-transform: uppercase;
-}
-
-nav ul li a {
-   padding: 5px !important;
-   transition: all 0.5s ease 0s;
-}
-
-nav ul li a:hover,
-nav ul li.active a {
-   color: black;
-   background-color: transparent !important;
-}
 
 
 /* BASIC INFORMATION SECTION STYLES */
@@ -216,7 +306,7 @@ nav ul li.active a {
    width: 5px;
    height: 100%;
    position: absolute;
-   left: 50px;
+   left: 8.5%;
    top: 0;
    content: ' ';
    display: block;
@@ -317,7 +407,7 @@ nav ul li.active a {
 }
 
 
-/* SKILLS SECTION STYLES */
+/* SKILLS AND LANGUAGES SECTION STYLES */
 
 ul.keywords {
    list-style: none;

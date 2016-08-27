@@ -1,3 +1,9 @@
+/**
+ * To-Do: Configurable section order
+ * To-Do: Responsive menu and thumbnails
+ * To-Do: Configurable section title (same as menu)
+ **/
+
 var fs = require("fs");
 var _ = require("lodash");
 var Handlebars = require("handlebars");
@@ -13,9 +19,7 @@ function render(resume) {
    var css = fs.readFileSync(__dirname + "/style.css", "utf-8");
    var tpl = fs.readFileSync(__dirname + "/resume.hbs", "utf-8");
 
-   /**
-    * To-Do: Configurable section order
-    **/
+   /* Create menu and thumbnails for each section */
    var menu = [];
    var section;
    var imgPath = "";
