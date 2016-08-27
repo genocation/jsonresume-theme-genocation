@@ -43,14 +43,14 @@ config.languageLevels.beginner.value = 20;
 
 config.thumbnails = {};
 config.thumbnails.basics = "https://unsplash.it/200/200/?image=1062";
-config.thumbnails.work = "https://unsplash.it/200/200/?image=0";
+config.thumbnails.work = "https://unsplash.it/200/200/?image=180";
 config.thumbnails.volunteer = "https://unsplash.it/200/200/?image=785";
 config.thumbnails.education ="https://unsplash.it/200/200/?image=635";
-config.thumbnails.awards = "https://unsplash.it/200/200/?image=824";
+config.thumbnails.awards = "https://unsplash.it/200/200/?image=828";
 config.thumbnails.publications = "https://unsplash.it/200/200/?image=1073";
 config.thumbnails.skills ="https://unsplash.it/200/200/?image=817";
-config.thumbnails.languages ="https://unsplash.it/200/200/?image=832";
-config.thumbnails.interests ="https://unsplash.it/200/200/?image=816";
+config.thumbnails.languages ="https://unsplash.it/200/200/?image=442";
+config.thumbnails.interests ="https://unsplash.it/200/200/?image=96";
 config.thumbnails.references ="https://unsplash.it/200/200/?image=759";
 
 config.sections = {};
