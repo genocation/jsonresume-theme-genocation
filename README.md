@@ -1,121 +1,158 @@
-# Boilerplate theme [![](https://badge.fury.io/js/jsonresume-theme-boilerplate.svg)](https://www.npmjs.org/package/jsonresume-theme-boilerplate)
+# Genocation theme 
 
-This is the boilerplate theme for [JSON Resume](http://jsonresume.org/).
+A responsive theme for [JSON Resume](http://jsonresume.org/) with Bootstrap, custom thumbnailsi for each section, animated level charts and floating navigation menu.
 
-## Getting started
+## Preview
 
-To get started with theme development, this is what you'll need:
+To see a working demo, check out my resume at [www.genocation.xyz](http://www.genocation.com).
 
-- [node.js](http://howtonode.org/how-to-install-nodejs)
-- [npm](http://howtonode.org/introduction-to-npm)
+## Usage
 
-If you're on Linux, you can simply run:
-
-```
-sudo apt-get install nodejs-legacy npm
-```
-
-Or if you're on OSX and got [Homebrew](http://brew.sh/) installed:
-```
-brew install node
-```
-
-### Install the command line
-
-We're going to use the official [resume-cli](https://github.com/jsonresume/resume-cli) to run our development server.
-
-Go ahead and install it:
-
+To use this theme, you must first install [JSON Resume CLI](https://www.npmjs.com/package/resume-cli) using npm.
 ```
 sudo npm install -g resume-cli
 ```
+Once the client is installed, you can start creating your resume.json by typing `resume init`. You can also create your resume.json file using the guide provided in the [JSON Resume Schema site](https://jsonresume.org/schema/). You can also check out the [JSON Resume Schema repository](https://github.com/jsonresume/resume-schema) for more details and updates.
 
-### Download theme
+You can use your own resume.json or try this theme with the placeholder resume.json available in the root folder.
 
-Lets go ahead and download a [copy of the repository](https://github.com/jsonresume/jsonresume-theme-boilerplate/archive/master.zip).
+### Download this theme
+
+Download a copy of this repository
+
+```
+git clone https://github.com/genocation/jsonresume-theme-genocation
+```
 
 ### Install npm packages
 
-We need to install the dependencies. `cd` into the theme folder we just downloaded and run:
+After navigating into the theme folder, install the npm dependencies by running:
 
-```bash
-sudo npm install
+```
+npm install
 ```
 
 This will read the local `package.json` and install the packages listed under `dependencies`.
 
 ### Serve theme
 
-While inside the theme folder, simply run:
+Finally, still inside the theme folder, use the JSON Resume client already installed to serve your theme:
 
 ```
-resume serve
+resume serve --theme .
 ```
 
-You should now see this message:
+If everything went fine, you will see this message:
 
 ```
 Preview: http://localhost:4000
 Press ctrl-c to stop
 ```
 
-Congratulations, you've made it!
+You can now navigate into that URL and see your awesome JSON Resume!
 
-__The theme development can now begin.__
 
-## Development
+## Thumbnails
 
-### Overview
+This theme implements circular thumbnails (200x200px) displayed next to the resume sections. To configure your thumbnails, simply place the collection of images in the folder jsonresume-theme-genocation/public/img. The images should be:
 
-Now that you have your boilerplate theme installed, go through a quick overview of each of the files needed for your JSONResume theme:
+1. PNG
+2. Square (same width and height)
+3. Preferably they will be sized 200x200px
+4. Each image must be renamed with the title of the section it illustrates and in lowercase.
 
-* `package.json`: Your package.json is required by all npm packages. Everytime you want to release a new update of your theme, you'll need to update it's version number.
-* `index.js`: This is the file that will return the needed HTML to the theme server. You can use it to process some things with your theme first, but we'll talk about that a bit later.
-* `resume.hbs`: This is your actual template. This file is sent to the `index.js` for it to sent to the theme server.
-* `style.css`: This is where all the CSS of your project goes. Since the `index.js` only returns HTML, the contents of this file are put between `<style>` tags in your `resume.hbs` file.
+If images for each section aren't found on the public img folder, a placeholder thumbnail will be placed instead.
 
-In order to get values from an actual JSONResume, you'll need to use a templating system, such as [Mustache](http://mustache.github.io/) or [Handlebars](http://handlebarsjs.com/). The default boilerplate theme uses Handlebars.
+If a profile picture URL is given in the JSON Resume file (basics section), this will be placed on the basics thumbnail instead.
 
-### package.json
+As an example, an image that is intended to serve as a thumbnail for the "Awards" section shall be placed as:
+```
+./jsonresume-theme-genocation/public/img/awards.png
+```
 
-Because you'll need to publish this as your own soon, you'll need to change some of the fields. You can replace the name field with your own theme name, so long as it starts with `jsonresume-theme-`. This prefix will allow your theme to be found by the theme server during deployment.
+## Supported Social Profiles
 
-Next, you'll want to change the description and author. You can change the description to anything you'd like, and the author should be your name.
+All the following social networks are supported by this theme - including their styling, icon and brand color:
 
-If you are also putting your theme up on Github, you'll probably want to keep the repository field, but replace the url with your own.
+* Social Networks
+   * Facebook
+   * Twitter
+   * Google+
+* Blogs
+   * Blog (also RSS)
+   * Tumblr
+   * WordPress
+* Profesional Networks
+   * Linkedin
+   * AngelList
+* Code and Repositories
+   * GitHub
+   * Bitbucket
+   * Stackoverflow
+   * Codepen
+   * JSFiddle
+* Photography and Design
+   * Flickr
+   * Instagram
+   * 500px
+   * Deviantart
+   * Dribble
+* Video
+   * YouTube
+   * Vimeo
+* Music
+   * Soundcloud
+   * Spotify
+   * LastFM
+* Other stuff
+   * Pinterest
+   * Steam
+   * Reddit
 
-Lastly, you can put all of your theme dependencies in the `dependencies` field. As you can see, we already have [Handlebars](http://handlebarsjs.com/) as one of the dependencies. If you wish not to use Handlebars, you may remove this, and replace it with another templating system.
 
-### index.js
+## Skills and Language Charts
 
-The `index.js` is where all the compiliing of your theme, and neccessary edits will go.
+The sections Skills and Languages can be shown as a colorful and animated bar chart that reflect the level of the skill with their width and color.
 
-At the top, you can already see the Node.js `require` function being used with the dependencies. You can obviously add own dependencies, if you are planning on using a different templating system, you can remove it.
+To implement this view, set the `level` parameter of each skill, and the `fluency` parameter of each language as per the following presets.
 
-The most important part of `index.js` is the `render` function. This is where all the compilation goes. This render function is expected to take a resume object (from a `resume.json`), and should return HTML. In this case, it is returning a compiled Handlebars document. If you removed the Handlebars dependency, you'll want to remove it and replace it with your own templating system compilation.
+Each level preset is mapped to a numerical value that can be modified in the file `config.js`.
 
-Above the `return` line are css and template variables. Using the Node.js `fs` module, it reads first the `style.css` and the `resume.hbs`.
+You can also edit the bar colors by modifying the background of the styles under the select `.progress-bar` in the `styles.css` file. At the bottom you can find a link to online tools that will help you generate cool CSS gradients.
 
-### resume.hbs
+### Skill Levels
 
-The `resume.hbs` file is where the actual template is. It contains all of the markup needed for your resume. By default, this is a Handlebars document, but it can obviously be changed into a different templating document.
+You can set the parameter `level` in each skill object with one of these keywords:
 
-### style.css
+1. Master (set to 99%)
+2. Advanced (set to 75%)
+3. Intermediate (set to 60%)
+4. Beginner (set to 50%)
 
-Last but not least, the `style.css` defines your styles. Technically, this is completely optional, as you could just write all of your styles in the `<style>` tags of your `resume.hbs`. As the `index.js`, the contents of the `style.css` are put into the `<style>` tags of your compiled theme later, yet again, this is something can change.
+### Language 
 
-## Deployment
+You can configure the parameter `fluency` in each language object with one of the following keywords:
 
-If you are familar with NPM, you should be done with this in no time.
+1. Native (set to 100%)
+2. Master (set to 80%)
+3. Advanced (set to 60%)
+4. Intermediate (set to 40%)
+5. Beginner (set to 20%)
 
-If you already have an NPM account, you can run `npm login` and enter your username and password. If not, you can run `npm adduser` and fill in the proper fields.
-
-If you changed the dependencies or added new ones, you'll want to run `npm install` again, and just to make sure, run `npm update` to get the latest version of each dependency.
-
-When you are done with that, you may go into your package.json, and edit the version number. When all of the above is finished, you may run `npm publish` to release your theme to the public. Now everyone can use your theme with their resume.
-
-When updating your theme, you'll need to change the version number and run `npm publish` again.
 
 ## License
 
 Available under [the MIT license](http://mths.be/mit).
+
+
+## Attributions
+
+Using [onScreen()](https://silvestreh.github.io/onScreen/) by Silvestre Herrera
+Icons from [FontAwesome](http://fontawesome.io/)
+Placeholder Thumbnails from [Unsplash.it](http://unsplash.it/)
+Floating Menu on small devices inspired by [jsonresume-theme-elegant](https://github.com/mudassir0909/jsonresume-theme-elegant) by Mudassir Ali.
+CSS gradients generated on [CSSMatic](http://www.cssmatic.com/gradient-generator)
+
+
+
+
